@@ -1,0 +1,7 @@
+основной язык приложеиня задаеться в /config/main.php
+
+    //'bootstrap' => ['log'],
+    'language'=> 'ru',
+    //'controllerNamespace' => 'frontend\controllers',
+
+это переведет все встроеные уведомления на руский язык

@@ -1,0 +1,45 @@
+    стандарт html разметки
+{
+    <!#DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+}
+
+сам javascript нужно записывать внутри тега <script>
+
+присваивать переменной значение необходимо при помощи ключевого слова {LET}
+
+    let num = 123;
+
+let - ключевое слово
+num - название переменной
+123 - значение переменной
+
+Посомтреть значение переменной можно в консоле браузера, передав ее 
+в функцию concole.log()
+    
+    concole.log(num);
+    
+
+Есть и другие ключевые слова, к примеру VAR 
+
+    var num = 123;
+    
+разница состоит в областях видимости 
+
+    { let foo = 123;
+      var too = 456;
+    }
+ 
+ concole.log(foo)  // error
+ concole.log(too)  // 456
+ 
+ 

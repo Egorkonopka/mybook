@@ -1,0 +1,4 @@
+scp -P 9080 abn_pv_21_02.tar.gz konopka@192.168.55.192:/BASE
+
+через пробел можно передавать нельстолько файлов 
+scp -P 9080 abn_gv_21_02.tar.gz abn_pv_21_02.tar.gz abn_ap_21_02.tar.gz abn_in_21_02.tar.gz ekonopka@192.168.55.10:/temp/

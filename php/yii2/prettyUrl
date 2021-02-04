@@ -1,0 +1,20 @@
+Преобразование Урла с помошью urlManager 
+находиться в фронтенд или бекенд чати в папке 
+config/main.php
+
+
+    'urlManager' => [
+                'enablePrettyUrl'=>true,
+                'showScriptName'=>false,
+                'rules'=>[
+                    '/'=>'site/index',
+                    'about'=>'site/about',
+                ],
+            ],
+
+можно открыть нужную ссылку по двум разним сокращениям 
+
+    'about|ab'=>'site/about',
+
+
+

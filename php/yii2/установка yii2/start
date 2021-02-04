@@ -1,0 +1,120 @@
+1. проверяем установлен composer, для этого в терминале выполнить команду:
+
+    composer -v 
+
+2. в директории /var/www/ запускаем команду:
+
+    composer create-project --prefer-dist yiisoft/yii2-app-advanced yii2-advanced
+
+где [yii2-advanced] название проэкта, которое можно сразу изменить [пример: cekapp]
+
+----------настройки веб-сервера----------
+
+В директроии /etc/apache2/sites-available создаем конфиг файл, который соответствует названию проекта
+[пример: cekapp.conf]
+
+с содержимым, согласно примеру , где cekapp название проекта
+
+    <VirtualHost *:80>
+        ServerName frontend.test
+        DocumentRoot "/var/www/cekapp/frontend/web/"
+        
+        <Directory "/var/www/cekapp/frontend/web/">
+            # use mod_rewrite for pretty URL support
+            RewriteEngine on
+            # If a directory or a file exists, use the request directly
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_FILENAME} !-d
+            # Otherwise forward the request to index.php
+            RewriteRule . index.php
+
+            # use index.php as index file
+            DirectoryIndex index.php
+
+            # ...other settings...
+            # Apache 2.4
+            Require all granted
+            
+            ## Apache 2.2
+            # Order allow,deny
+            # Allow from all
+        </Directory>
+    </VirtualHost>
+    
+    <VirtualHost *:80>
+        ServerName backend.test
+        DocumentRoot "/var/www/cekapp/backend/web/"
+        
+        <Directory "/var/www/cekapp/backend/web/">
+            # use mod_rewrite for pretty URL support
+            RewriteEngine on
+            # If a directory or a file exists, use the request directly
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_FILENAME} !-d
+            # Otherwise forward the request to index.php
+            RewriteRule . index.php
+
+            # use index.php as index file
+            DirectoryIndex index.php
+
+            # ...other settings...
+            # Apache 2.4
+            Require all granted
+            
+            ## Apache 2.2
+            # Order allow,deny
+            # Allow from all
+        </Directory>
+    </VirtualHost>
+
+
+Следующим шагом необходимо подтвердить этот файл выполнив команду:
+
+    sudo a2ensite cekapp.conf
+
+после чего будет сообщение с предложением перегрузить АПАЧ 
+
+В директроии /etc/ в фалике hosts  необходимо прописать название сайта
+
+        127.0.0.1   localhost
+
+        127.0.0.1   frontend.test
+        127.0.0.1   backend.test
+где frontend.test и backend.test сайты нашего проекта
+
+Назначем владельца и права на проэкт:
+
+    chmod -R 777 /var/www/cekapp/
+    chown www-data:www-data -R /var/www/cekapp/
+
+и перегружаем АПАЧ 
+    
+    systemctl restart apache2
+
+инициализируем проект, перейдя в католог cd /var/www/cekapp и выполнить комнду:
+
+    php init
+
+псоле чего в браузере по frontend.test и backend.test будет доступно приложение.
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

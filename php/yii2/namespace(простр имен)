@@ -1,0 +1,32 @@
+используеться бязательно и необходимо для того что бы 
+применяя одинаковое название для 2-х разных классов программа понималла к какому именно обращаться
+<?php
+require_once 'alex/Order.php';
+require_once 'jonh/Order.php';
+
+$order = new alex\Order();
+$sorting = new jonh\Order();
+
+print_r($order);
+print_r($sorting);
+?>
+
+так же что бы применять класс не добавляя постоянно название папки в которой он лежит
+можно использовать (USE)
+так же с помошью (USE) можно переимонвать класс
+
+
+<?php
+require_once 'alex/Order.php';
+require_once 'jonh/Order.php';
+
+use alex\Order;
+use jonh\Order as Sorting;
+
+$order = new Order();
+$sorting = new Sorting();
+
+print_r($order);
+print_r($sorting);
+?>
+

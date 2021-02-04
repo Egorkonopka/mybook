@@ -1,0 +1,220 @@
+    let h1 = document.createElement('h1');
+    
+    {
+        let h1 - создает ячейку с названием h1
+        document.createElement('h1') - вызываем функцию, которая создает виртуальный елемент
+    }
+    
+И прибавляем в тег <body> внутрь (детский) елемент <h1>
+
+    document.body.appendChild(h1);
+    
+у таких объектов есть свойства, а так как переменной h1  мы присвоили createElement('h1')
+, тоесть <h1>. В (let h1) попал целый объект у коготого есть свойства.
+к примеру свойство innerText
+
+    let h1 = document.createElement('h1');
+    h1.innerText = 'hellowrold';
+    document.body.appendChild(h1);
+    
+<html>
+<head>
+<head>
+<body>
+    <script>...</script>
+    <h1>hellowrold</h1>
+</body>
+</html>
+
+обьекты не обязательно создавать, можно  получить уже созданый елемент,
+к примеру, через его (class)
+    
+    let targetList = document.getElementByClassName('target');
+    
+таким образом в массив [targetList] попадут все елементы с классом (target)
+Обращаясь к конкрутному элементу (если их много) можно меннять, например, его содержимое
+  {
+    targetList[1].innerText = 'текст';
+
+    innerText -  свойство, которое отвечает за содержимое данного объекта
+  }
+ 
+  {
+    targetList.style.background = 'sliver';
+    
+    style - свойство, отвечает за стиль обьекта;
+    background - название; 'sliver' - значение
+  }
+--------------------------------------пример1----------------------------------------
+        <body>
+
+        <div id="film-box">  //блок с айди film-box//
+        </div>
+
+
+        <script type="text/javascript">
+
+            let products = [
+                    {
+                        title: 'milk',
+                        price: 22,
+                        image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
+                    },
+                    {
+                        title: 'juice',
+                        price: 27,
+                        image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
+                    },
+                    {
+                        title: 'tomato',
+                        price: 47,
+                        image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
+                    },
+                    {
+                        title: 'tea',
+                        price: 15,
+                        image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
+                    },
+                ];
+
+                let filmbox = document.getElementById('film-box');          //получаем в переменную елемент с классом film-box//
+
+                for(let i = 0; i < products.length; i++){                   //запускаем цыкл всех объектов в масиве [products]//
+                    let product = products[i];                              //помещаем в product итерированый объект из массива//
+
+
+                    let title = document.createElement('h3');               //создаем объект <h3>//
+                    title.innerText = product.title;                         //помещаем текст в тег<h3> //
+                    filmbox.appendChild(title);                              //добавляем елементу filmbox (child) h3//
+
+
+                    let image = document.createElement('img');              //создаем объект <img>//
+                    image.src = product.image;                              //помещаем ссылку в src для <img> //
+                    image.style.width = '100px';                             //делаем резмер картинок = 100пх//
+                    filmbox.appendChild(image);                             //добавляем елементу filmbox (child) <img> //
+
+
+                    let price = document.createElement('div');              //создаем блок <div>//
+                    price.innerText = product.price;                        //помещаем текст в div //
+                    filmbox.appendChild(price);                            //добавляем елементу filmbox (child) <div> //         
+
+                }
+
+                
+
+        </script>
+    </body>
+
+--------------------------------------html----------------------------------------
+  <div id="film-box">
+  
+        <h3>milk</h3>
+        <img src="https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg" style="width: 100px;">
+        <div>22</div>
+        
+        <h3>juice</h3>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg" style="width: 100px;">
+        <div>27</div>
+        
+        <h3>tomato</h3>
+        <img src="https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74" style="width: 100px;">
+        <div>47</div>
+        
+        <h3>tea</h3>
+        <img src="https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png" style="width: 100px;">
+        <div>15</div>
+        
+  </div>
+  
+--------------------------------------/пример1----------------------------------------
+
+
+  
+  еще варинт , только теперь каждый продукт помещаем в отдельный блок 
+--------------------------------------пример2----------------------------------------
+  
+  <script type="text/javascript">
+		
+
+		let products = [
+				{
+					title: 'milk',
+					price: 22,
+					image: 'https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg'
+				},
+				{
+					title: 'juice',
+					price: 27,
+					image: 'https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg'
+				},
+				{
+					title: 'tomato',
+					price: 47,
+					image: 'https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74'
+				},
+				{
+					title: 'tea',
+					price: 15,
+					image: 'https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png'
+				},
+			];
+
+				for(let i = 0; i < products.length; i++){
+				let product = products[i];
+
+				let wrap = document.createElement('div');
+				wrap.classList.add('wrap');
+
+
+				let title = document.createElement('h3');
+				title.innerText = product.title;
+				wrap.appendChild(title);
+
+
+				let image = document.createElement('img');
+				image.src = product.image;
+				wrap.appendChild(image);
+
+
+				let price = document.createElement('div');
+				price.innerText = product.price;
+				wrap.appendChild(price);
+
+
+				document.body.appendChild(wrap);
+
+			}
+	</script>
+--------------------------------------html----------------------------------------
+
+
+	<div class="wrap">
+        <h3>milk</h3>
+        <img src="https://www.mcqueensdairies.co.uk/wp-content/uploads/2019/02/Mcqueens_1litre_whole_organic-300x300-3.jpg">
+        <div>22</div>
+    </div>
+    
+	<div class="wrap">
+        <h3>juice</h3>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/61jL2GCuKLL._SX679_PIbundle-24,TopRight,0,0_AA679SH20_.jpg">
+        <div>27</div>
+	</div>
+	
+	<div class="wrap">
+        <h3>tomato</h3>
+        <img src="https://dictionary.cambridge.org/ru/images/thumb/tomato_noun_001_17860.jpg?version=5.0.74">
+        <div>47</div>
+	</div>
+	
+	<div class="wrap">
+        <h3>tea</h3>
+        <img src="https://yogiproducts.com/wp-content/uploads/2009/03/YT-US-CAR-RelaxedMind-C23-202201-V2-3DFront_withGlow-300DPI-1.png">
+        <div>15</div>
+	</div>
+--------------------------------------/пример2----------------------------------------
+
+
+  
+  
+  
+  

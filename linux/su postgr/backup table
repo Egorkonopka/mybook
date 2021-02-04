@@ -1,0 +1,2 @@
+postgres@ekonopka /m/D/BASE> 
+pg_dump -h 192.168.15.15 -p 5432 -C -t ooost_detal22 -d energo_dnres > /BASE/ooost_detal22.sql

@@ -1,0 +1,1 @@
+psql --host 192.168.17.1 --port 5432 energo_gvres < /BASE/oost_detal_post_22.sql

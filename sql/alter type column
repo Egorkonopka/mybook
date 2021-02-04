@@ -1,0 +1,2 @@
+alter table ost_detal_add alter column kind type int USING kind::integer
+

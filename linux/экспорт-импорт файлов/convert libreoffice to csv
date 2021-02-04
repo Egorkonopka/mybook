@@ -1,0 +1,8 @@
+libreoffice --headless --convert-to csv --infilter=CSV:36,34,76,2 --outdir somedir *.xlsx
+
+1. Separator, 44 is the ASCII value of comma (36 код $)
+2. Text delimiter, 34 is the ASCII value of double quote
+3. Character set to use, 0 is the system default (76 это UTF8)
+4. Line number to start conversion. I have no header line, so it is 1
+5. Cell format per column, separated by /. It does not seem to matter if there are a different number of columns in the data: Extra columns default to Standard, extra formats are ignored.
+   4 = date d/m/y; 2 = text; 1 = standard

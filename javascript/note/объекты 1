@@ -1,0 +1,42 @@
+    
+    
+    let user = {
+        name: 'Yehor',
+        age: 27,
+        status: true,
+        skils: ['java','php']
+        }
+        
+    user = {} - объект 
+    age: 27 - значение объекта
+    
+вызов конкретного свойства объекта
+    
+    console.log(user.name);
+    
+Массив объектов 
+
+    let products = [
+        
+        {title: 'milk',
+         price: 31,
+         volume: '1 l'
+        } ,
+        
+        {
+         title: 'bread',
+         price: 12,
+         volume: '120 g'
+        } ,
+        
+        {
+         title: 'bread',
+         price: 12,
+         volume: '120 g'
+        }
+    ];
+    
+    
+    console.log(products[0].title)
+    // milk 
+

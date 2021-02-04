@@ -1,0 +1,36 @@
+файлик подключения базы 
+1) config - создать фал подключения
+2) web - добавить include этого файла
+
+MenuController
+1)actionIndex $res=[масив подключений] to Idex.php
+2) inedex.php - Url::to(['menu/view','id'=>$key]) отправляет POST в actionView
+3) actionView принимает пораметр и записывает его в сессию
+
+Models 
+1) getDb = масив всех подключений
+
+
+если урл = хоум урл 
+сессион дб - ансет (сессион дб)
+
+
+
+
+
+
+
+vendor/costa-rico/yii2-images/models/image
+              public static function getDb()
+    {
+        $base = Yii::$app->session['db'];
+                
+        if($base=='port_place')
+            return Yii::$app->get('port_place');
+        if($base=='silver')
+            return Yii::$app->get('silver');
+    }
+    
+    
+    перечислить все формы где встречаеться ГЕТдб
+    

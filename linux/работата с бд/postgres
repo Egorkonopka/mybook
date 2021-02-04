@@ -1,0 +1,5 @@
+сделать декап
+pg_dump abn_pv > base.dmp
+
+развернуть с бекапа
+psql abn_gv < abn_gv_21_02.dmp
